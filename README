@@ -1,0 +1,10 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=1104
+
+A CScope frontend provides having multiple query results around. It uses windows, so the results won't get away.
+For usage see the comments in the script file.
+
+It uses two windows, one for listing the queries done and
+another for listing the result of the selected query.
+It can be used parallel with the normal cscope frontend of
+vim because they use different settings and key bindings.
+
