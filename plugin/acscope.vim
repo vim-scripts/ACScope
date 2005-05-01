@@ -3,7 +3,11 @@
 " License:
 " Do whatever you want with this file.
 " 
-" Version: 0.1
+" Version: 0.2
+"
+" Changelog:
+" 2005.04.28
+"   o bugfix: store proper filename in the tagstack
 " 
 " Author: Gabor Fekete
 " Date: 2004.08.someday
@@ -187,7 +191,7 @@ function! s:ACS_goto_respos()
 	endif
 	exec acs_winnum . "wincmd w"
 	" remember the current file and pos
-	let s:acs_pos_stack_{s:acs_stack_top}_file = expand(getcwd()) . "/" . bufname("")
+	let s:acs_pos_stack_{s:acs_stack_top}_file = expand("%:p")
 	let s:acs_pos_stack_{s:acs_stack_top}_line = line('.')
 	let s:acs_stack_top = s:acs_stack_top + 1
 	if s:acs_stack_top > s:acs_stack_end
@@ -197,7 +201,7 @@ function! s:ACS_goto_respos()
 	exec 'edit ' . s:acs_qres_{s:acs_active_query}_{idx}_1
 	exec s:acs_qres_{s:acs_active_query}_{idx}_3
 	" remember the target
-	let s:acs_pos_stack_{s:acs_stack_top}_file = expand(getcwd()) . "/" . bufname("")
+	let s:acs_pos_stack_{s:acs_stack_top}_file = expand("%:p")
 	let s:acs_pos_stack_{s:acs_stack_top}_line = line('.')
 endfunction
 
